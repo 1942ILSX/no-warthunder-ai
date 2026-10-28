@@ -1,0 +1,25 @@
+extends: ../train.yaml
+# v2 is a NEW run; legacy teacher configs remain reproducible.
+calibration_version: 2
+iterations: 400
+actor_hidden: [64, 32]
+training_role: enemy
+learning_rate: 0.0001
+entropy_coef: 0.005
+checkpoint_every: 25
+league_every: 25
+scripted_probability: 0.6
+latest_probability: 0.4
+eval_every: 25
+eval_episodes: 50
+eval_seed: 3000000
+eval_opponents: [guard, hunter, wander]
+# The old final test informed v2 development and is no longer untouched.
+consumed_campaigns:
+  - {seed: 1000000, episodes: 20, purpose: legacy_teacher_selection}
+  - {seed: 2000000, episodes: 100, purpose: reviewed_student_test}
+curriculum:
+  - until_iteration: 400
+    level_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    max_steps: 9000
+    defender_bots: [guard, hunter]

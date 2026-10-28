@@ -1,0 +1,41 @@
+# Python environments, caches and packaging
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.coverage
+htmlcov/
+/build/
+/dist/
+
+# Local IDE preferences
+.idea/
+.run/
+.vscode/
+.DS_Store
+
+# Training outputs and evidence stay local; publish reviewed summaries in docs/.
+/runs/
+/artifacts/
+/reports/
+/work/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.mlpackage/
+*.mlmodelc/
+*.log
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx

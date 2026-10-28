@@ -1,0 +1,120 @@
+{
+  "project": "NO WarThunder",
+  "deployed": false,
+  "models": [
+    {
+      "difficulty": "trainee",
+      "policy_version": "nwt-trainee-v3",
+      "checkpoint_sha256": "42af4318dd0d5dbdf463ff699492904e26b692448d48c4cab847027eddf3635c",
+      "weights_sha256": "fa76ca60fe3b571e75adeffeb45ed3035f691d8d0ed87641629bf2776b77e7e8",
+      "weights_bytes": 91816,
+      "parameter_count": 22954,
+      "sampler": {
+        "mode": "categorical",
+        "temperature": 1.0,
+        "rng": "xorshift64-v1"
+      },
+      "evaluation_seed": 6000000,
+      "total_matches": 600,
+      "primary_matches": 400,
+      "target_defender_win_rate": [
+        0.7,
+        0.9
+      ],
+      "defender_win_rate": 0.745,
+      "timeout_rate": 0.0,
+      "moving_no_progress_rate": 0.002809402681856283,
+      "all_gates_passed": true,
+      "evaluation_sha256": "80c056edfe6a29178e25258ab2c49925eff84b372690ea7079d1527f67ceae1a",
+      "deployment_artifact": "https://github.com/1942ILSX/no-warthunder-backend/tree/main/models/trainee"
+    },
+    {
+      "difficulty": "expert",
+      "policy_version": "nwt-expert-v3",
+      "checkpoint_sha256": "1ac681f19d628f75daafe946faf0c948be0d101bc7cdf30aa2f849494047a8ec",
+      "weights_sha256": "da38ee126a5fbfadd40f22a08931d440cce17f05a85ddb00f72193889521fec8",
+      "weights_bytes": 91816,
+      "parameter_count": 22954,
+      "sampler": {
+        "mode": "categorical",
+        "temperature": 0.3,
+        "rng": "xorshift64-v1"
+      },
+      "evaluation_seed": 6000000,
+      "total_matches": 600,
+      "primary_matches": 400,
+      "target_defender_win_rate": [
+        0.4,
+        0.6
+      ],
+      "defender_win_rate": 0.4875,
+      "timeout_rate": 0.0,
+      "moving_no_progress_rate": 0.004313902109478656,
+      "all_gates_passed": true,
+      "evaluation_sha256": "5c6b263dc51ec14d9c40156dcea8c773b84d89d9c96c57650b64a979af643a76",
+      "deployment_artifact": "https://github.com/1942ILSX/no-warthunder-backend/tree/main/models/expert"
+    },
+    {
+      "difficulty": "ace",
+      "policy_version": "nwt-ace-v3",
+      "checkpoint_sha256": "3813a56fce72d0a51aca4136fa241ca24364388733236b2800c44b7a0fb7afcc",
+      "weights_sha256": "c1c1a63b158676173ab3125f0f1c9eac249942b93e0caed1853f48fda93ef0f9",
+      "weights_bytes": 91816,
+      "parameter_count": 22954,
+      "sampler": {
+        "mode": "categorical",
+        "temperature": 0.5,
+        "rng": "xorshift64-v1"
+      },
+      "evaluation_seed": 8000000,
+      "total_matches": 600,
+      "primary_matches": 400,
+      "target_defender_win_rate": [
+        0.1,
+        0.3
+      ],
+      "defender_win_rate": 0.2675,
+      "timeout_rate": 0.0,
+      "moving_no_progress_rate": 0.0,
+      "all_gates_passed": true,
+      "evaluation_sha256": "a6eeac3cf49df9862234cfd001bc921b253078ad1cc73b36d097d4ad00190a0e",
+      "deployment_artifact": "https://github.com/1942ILSX/no-warthunder-backend/tree/main/models/ace"
+    }
+  ],
+  "server_verification": {
+    "status": "passed_bounded_headless_probe",
+    "duration_seconds": 30.000045589,
+    "rooms": 25,
+    "cpu_quota_cores": 0.5,
+    "hard_memory_mib": 192,
+    "swap_enabled": false,
+    "mean_cpu_cores": 0.06857319579388589,
+    "peak_rss_bytes": 10174464,
+    "physics_hz_per_room": 29.966621128390315,
+    "snapshots_hz_per_room": 14.99997720553464,
+    "actual_live_inferences_per_second": 859.0653612023083,
+    "supplemental_inferences_per_second": 139.86645412094077,
+    "combined_inferences_per_second": 998.9318153232491,
+    "mean_enemies_per_room": 3.4905005561735263,
+    "peak_live_enemies": 100,
+    "dropped_ticks": 0,
+    "cpu_throttled_periods_during_measurement": 0,
+    "tick_work_p99_ms": 6.587316,
+    "wake_lateness_p99_ms": 1.121408,
+    "service_main_pids_unchanged": true,
+    "remote_cleanup_complete": true,
+    "probe_binary_sha256": "305fe4014790cc65e108ab2a729521dcac8fc6fb39e6a8276b76c0dc2cb38039",
+    "limits": "Real Go simulation/inference/JSON plus supplemental MLP calls; excludes HTTP/WebSocket/TLS, socket buffers, persistence and application overhead; 30-second bounded probe, not a sustained full-server load test."
+  },
+  "publication_scope": "Sanitized summary of completed local evidence. Training checkpoints, raw evaluation reports, temporary probe evidence, and runtime data are not included in this source repository. Qualified deployment weights are in no-warthunder-backend/models.",
+  "local_integration": {
+    "status": "completed",
+    "difficulty_selection": true,
+    "score_multipliers": {
+      "trainee": 1.0,
+      "expert": 1.5,
+      "ace": 2.0
+    },
+    "leaderboard": "One Top 10 per level across difficulties; weighted score descending, then shorter duration."
+  }
+}

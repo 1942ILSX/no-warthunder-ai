@@ -1,0 +1,10 @@
+extends: train.yaml
+iterations: 300
+horizon: 128
+student_hidden: [64, 32]
+dataset_size: 100000
+epochs: 3
+temperature: 1.0
+learned_defender: true
+checkpoint_every: 10
+eval_every: 0

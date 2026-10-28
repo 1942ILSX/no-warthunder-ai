@@ -1,0 +1,42 @@
+extends: ../difficulty/base.yaml
+# Independent profile transfer from frozen ace iteration 225; its full
+# observation is preserved so difficulty tuning does not erase navigation.
+difficulty: expert
+seed: 820227
+calibration_version: 3
+progress_recovery: {}
+target_defender_win_rate: [0.4, 0.6]
+score_multiplier: 1.5
+device: cpu
+iterations: 50
+num_envs: 24
+learning_rate: 0.00001
+checkpoint_every: 10
+league_every: 10
+eval_every: 10
+eval_episodes: 100
+eval_seed: 3000000
+scripted_probability: 0.6
+latest_probability: 0.4
+consumed_campaigns:
+  - {seed: 1000000, episodes: 20, purpose: legacy_teacher_selection}
+  - {seed: 2000000, episodes: 100, purpose: reviewed_student_test}
+  - {seed: 3000000, episodes: 100, purpose: expanded_selection_calibration}
+curriculum:
+  - until_iteration: 50
+    level_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    max_steps: 9000
+    defender_bots: [guard, hunter]
+difficulty_control:
+  version: 1
+  masked_features: []
+  fire_budget: 0.6
+  turn_fire_budget: 0.3
+  pressure_coef: 2.0
+  recovery_coef: 0.1
+  emergency_distance: 0.12
+  initial_budget_scale: 1.0
+  min_budget_scale: 0.25
+  max_budget_scale: 2.0
+  controller_rate: 0.5
+  max_log_step: 0.15

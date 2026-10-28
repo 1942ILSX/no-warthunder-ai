@@ -1,0 +1,48 @@
+# Training is offline. No command runs until you launch main.py train.
+difficulty: expert
+target_defender_win_rate: [0.4, 0.6]
+max_truncation_rate: 0.1
+max_stagnation_rate: 0.25
+min_evaluation_episodes: 60
+# Reserved metadata; no game scoring or training reward is changed.
+score_multiplier: 1.5
+seed: 42
+device: auto
+num_envs: 32
+horizon: 128
+iterations: 2000
+actor_hidden: [256, 128]
+critic_hidden: [256, 256]
+learning_rate: 0.0003
+gamma: 0.999
+gae_lambda: 0.95
+clip_epsilon: 0.2
+entropy_coef: 0.01
+value_coef: 0.5
+ppo_epochs: 4
+minibatch_size: 1024
+max_grad_norm: 0.5
+training_role: alternating
+enemy_updates: 4
+defender_updates: 1
+checkpoint_every: 25
+league_every: 25
+league_size: 8
+scripted_probability: 0.4
+latest_probability: 0.4
+eval_every: 50
+eval_episodes: 20
+eval_seed: 1000000
+curriculum:
+  - until_iteration: 100
+    level_ids: [1, 2]
+    max_steps: 600
+    defender_bots: [mixed]
+  - until_iteration: 400
+    level_ids: [1, 2, 3, 4, 5, 6]
+    max_steps: 1800
+    defender_bots: [mixed]
+  - until_iteration: 2000
+    level_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    max_steps: 9000
+    defender_bots: [mixed]

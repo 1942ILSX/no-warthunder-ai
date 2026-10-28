@@ -1,0 +1,94 @@
+difficulty: ace
+target_defender_win_rate:
+- 0.1
+- 0.3
+max_truncation_rate: 0.1
+max_stagnation_rate: 0.25
+min_evaluation_episodes: 60
+score_multiplier: 2.0
+seed: 1550111
+device: auto
+num_envs: 32
+horizon: 128
+iterations: 200
+actor_hidden:
+- 64
+- 32
+critic_hidden:
+- 256
+- 256
+learning_rate: 3.0e-05
+gamma: 0.999
+gae_lambda: 0.95
+clip_epsilon: 0.2
+entropy_coef: 0.002
+value_coef: 0.5
+ppo_epochs: 4
+minibatch_size: 1024
+max_grad_norm: 0.5
+training_role: enemy
+enemy_updates: 4
+defender_updates: 1
+checkpoint_every: 20
+league_every: 25
+league_size: 8
+scripted_probability: 1.0
+latest_probability: 0.0
+eval_every: 20
+eval_episodes: 200
+eval_seed: 3000000
+curriculum:
+- until_iteration: 200
+  level_ids:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  max_steps: 9000
+  defender_bots:
+  - guard
+  - hunter
+calibration_version: 3
+eval_opponents:
+- guard
+- hunter
+- wander
+consumed_campaigns:
+- seed: 1000000
+  episodes: 20
+  purpose: legacy_teacher_selection
+- seed: 2000000
+  episodes: 100
+  purpose: reviewed_student_test
+- seed: 3000000
+  episodes: 200
+  purpose: native_sampler_selection
+- seed: 4000000
+  episodes: 200
+  purpose: failed_argmax_final_informed_native_repair
+difficulty_control:
+  version: 1
+  masked_features: []
+  fire_budget: 1.0
+  turn_fire_budget: 1.0
+  pressure_coef: 2.0
+  recovery_coef: 0.05
+  emergency_distance: 0.12
+  initial_budget_scale: 1.0
+  min_budget_scale: 0.25
+  max_budget_scale: 2.0
+  controller_rate: 0.5
+  max_log_step: 0.15
+progress_recovery: {}
+deployment_sampler:
+  mode: categorical
+  temperature: 0.3
+  rng: xorshift64-v1
+initialize_critics_from_source: true
+log_every: 10

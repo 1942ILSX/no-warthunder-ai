@@ -1,0 +1,10 @@
+extends: train.yaml
+iterations: 300
+actor_hidden: [64, 32]
+training_role: enemy
+checkpoint_every: 10
+curriculum:
+  - until_iteration: 300
+    level_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    max_steps: 9000
+    defender_bots: [mixed]

@@ -1,0 +1,9 @@
+extends: train.yaml
+difficulty: trainee
+seed: 110113
+iterations: 1200
+scripted_probability: 0.6
+latest_probability: 0.2
+target_defender_win_rate: [0.7, 0.9]
+# Proposed future game scoring metadata only; training rewards are unchanged.
+score_multiplier: 1.0

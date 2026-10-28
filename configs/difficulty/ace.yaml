@@ -1,0 +1,18 @@
+extends: base.yaml
+difficulty: ace
+seed: 630233
+target_defender_win_rate: [0.1, 0.3]
+score_multiplier: 2.0
+difficulty_control:
+  version: 1
+  masked_features: []
+  fire_budget: 1.0
+  turn_fire_budget: 1.0
+  pressure_coef: 2.0
+  recovery_coef: 0.10
+  emergency_distance: 0.12
+  initial_budget_scale: 1.0
+  min_budget_scale: 0.25
+  max_budget_scale: 2.0
+  controller_rate: 0.5
+  max_log_step: 0.15

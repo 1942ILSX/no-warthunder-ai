@@ -1,0 +1,31 @@
+# Functional verification only; its checkpoints are not evidence of playing strength.
+smoke: true
+difficulty: expert
+target_defender_win_rate: [0.4, 0.6]
+score_multiplier: 1.5
+seed: 123
+device: cpu
+num_envs: 2
+horizon: 24
+iterations: 2
+actor_hidden: [64, 32]
+critic_hidden: [64, 32]
+learning_rate: 0.0003
+gamma: 0.999
+gae_lambda: 0.95
+ppo_epochs: 1
+minibatch_size: 32
+training_role: alternating
+enemy_updates: 1
+defender_updates: 1
+checkpoint_every: 1
+league_every: 1
+league_size: 2
+scripted_probability: 1.0
+latest_probability: 0.0
+eval_every: 0
+curriculum:
+  - until_iteration: 2
+    level_ids: [1, 2]
+    max_steps: 30
+    defender_bots: [mixed]

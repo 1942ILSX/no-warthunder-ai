@@ -1,0 +1,20 @@
+extends: base.yaml
+difficulty: trainee
+seed: 410113
+target_defender_win_rate: [0.7, 0.9]
+score_multiplier: 1.0
+difficulty_control:
+  version: 1
+  # No player velocity, bullet telemetry, or predicted danger. Navigation,
+  # local terrain, target visibility, role, and legal actions stay available.
+  masked_features: [210, 211, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 309, 310, 311, 312]
+  fire_budget: 0.20
+  turn_fire_budget: 0.03
+  pressure_coef: 2.0
+  recovery_coef: 0.10
+  emergency_distance: 0.12
+  initial_budget_scale: 1.0
+  min_budget_scale: 0.25
+  max_budget_scale: 2.0
+  controller_rate: 0.5
+  max_log_step: 0.15

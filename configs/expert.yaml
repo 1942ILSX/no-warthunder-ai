@@ -1,0 +1,9 @@
+extends: train.yaml
+difficulty: expert
+seed: 220219
+iterations: 2000
+scripted_probability: 0.4
+latest_probability: 0.4
+target_defender_win_rate: [0.4, 0.6]
+# Proposed future game scoring metadata only; training rewards are unchanged.
+score_multiplier: 1.5
